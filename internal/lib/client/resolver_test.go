@@ -45,7 +45,7 @@ func TreeResolver(tree Tree, parts []string, index int) ([]string, bool) {
 			}
 		}
 
-		for i, _ := range out {
+		for i := range out {
 			post := ""
 			if strings.HasSuffix(out[i], "/") {
 				post = "/"

@@ -8,10 +8,12 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 )
 
+// Client wraps EC2Metadata clients
 type Client struct {
 	EC2Metadata *ec2metadata.EC2Metadata
 }
 
+// GetList returns list of entries by path
 func (c *Client) GetList(p string) ([]string, error) {
 	m, err := c.EC2Metadata.GetMetadata(p)
 
@@ -22,6 +24,7 @@ func (c *Client) GetList(p string) ([]string, error) {
 	return strings.Split(m, "\n"), nil
 }
 
+// GetString returns single entry by path
 func (c *Client) GetString(p string) (string, error) {
 	m, err := c.EC2Metadata.GetMetadata(p)
 
@@ -32,6 +35,7 @@ func (c *Client) GetString(p string) (string, error) {
 	return m, nil
 }
 
+// ResolvePath returns all entries matching path pattern
 func (c *Client) ResolvePath(p string) ([]string, error) {
 	p = strings.Trim(p, "/")
 
@@ -51,6 +55,7 @@ func (c *Client) ResolvePath(p string) ([]string, error) {
 	return PathResolver(p, f)
 }
 
+// New returns new client
 func New() (*Client, error) {
 	sess, err := session.NewSession()
 

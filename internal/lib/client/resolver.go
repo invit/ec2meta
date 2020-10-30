@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// PathResolver expands path patterns and merges resulting entries to a single list
 func PathResolver(p string, f func(p string) ([]string, error)) ([]string, error) {
 	re := regexp.MustCompile("\\[(\\*|[0-9]+)]")
 
