@@ -1,0 +1,20 @@
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - env:
+      - CGO_ENABLED=0
+    binary: ec2meta
+    ldflags:
+      - -s -w -X github.com/invit/ec2meta/internal/lib/version.Version={{.Version}} -X github.com/invit/ec2meta/internal/lib/version.Commit={{.Commit}} -X github.com/invit/ec2meta/internal/lib/version.Date={{.Date}}
+    goos:
+      - linux
+    goarch:
+      - amd64
+archives:
+  - files:
+    - LICENSE
+    - README.md
+checksum:
+  name_template: 'checksums.txt'
+
