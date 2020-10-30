@@ -1,5 +1,7 @@
 # ec2meta
 
+![build](https://github.com/invit/ec2meta/workflows/build/badge.svg)
+
 Simple CLI to query AWS EC2 instance metadata.
 
 ## Usage
