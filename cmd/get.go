@@ -13,7 +13,7 @@ func init() {
 
 var getCmd = &cobra.Command{
 	Use:   "get <path>",
-	Short: "Returns arbitrary meta data by path",
+	Short: "Returns arbitrary metadata by path",
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		c, err := client.New()

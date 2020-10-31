@@ -8,13 +8,13 @@ Simple CLI to query AWS EC2 instance metadata.
 
 ``` 
 $ ec2meta
-Display EC2 instance meta data
+Display EC2 instance metadata
 
 Usage:
   ec2meta [command]
 
 Available Commands:
-  get         Returns arbitrary meta data by path
+  get         Returns arbitrary metadata by path
   help        Help about any command
   version     Print the version number of ec2meta
 
@@ -28,7 +28,7 @@ Use "ec2meta [command] --help" for more information about a command.
 
 ``` 
 $ ec2meta help get
-Returns arbitrary meta data by path
+Returns arbitrary metadata by path
 
 Usage:
   ec2meta get <path> [flags]
@@ -37,7 +37,7 @@ Flags:
   -h, --help   help for get
 ```
 
-`<path>` can be either point to a directory path like
+`<path>` can either point to a directory path, like
 
 ``` 
 $ ec2meta get /
@@ -75,7 +75,7 @@ $ ec2meta get /hostname
 ip-10-0-0-248.eu-central-1.compute.internal
 ```
 
-or access either all `[*]` or a specific element in a list:
+or reference either all `[*]` elements or a specific one (e.g. `[0]`) in a list:
 
 ```
 $ ec2meta get /network/interfaces/macs/[0]/vpc-id

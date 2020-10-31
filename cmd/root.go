@@ -9,7 +9,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:           "ec2meta [command]",
-	Short:         "Display EC2 instance meta data",
+	Short:         "Display EC2 instance metadata",
 	SilenceUsage:  true,
 	SilenceErrors: true,
 }
